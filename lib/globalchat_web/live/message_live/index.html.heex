@@ -1,0 +1,33 @@
+<Layouts.flash_group flash={@flash} />
+<div class="flex flex-col h-screen bg-base-200">
+  <div class="navbar">
+    <div class="flex-1 ml-5">
+      ?
+    </div>
+    <div class="flex-1 text-xl">
+      globalchat
+    </div>
+    <div class="flex-none mr-5">
+      <Layouts.theme_toggle />
+    </div>
+  </div>
+  <div phx-update="stream" id="messages" class="flex-1 flex flex-col-reverse overflow-y-scroll">
+    <div :for={{dom_id, message} <- @streams.messages} id={dom_id} 
+      class="ms-5 me-5 mt-2 p-2 w-auto break-words border-base-300 bg-base-100 border-spacing-1 rounded-field border-2">
+      <div class="flex flex-row">
+        <div class="text-secondary flex-1">
+          <%= message.user %>:
+        </div>
+        <div class="text-secondary">
+          <%= message.inserted_at %>
+        </div>
+      </div>
+      <%= message.content %>
+    </div>
+
+  </div>
+  <.form  phx-change="content_update" for={%{}} phx-submit="send" class="p-5 flex">
+    <input name="content" type="text" value={@content} placeholder="message" class="border-solid border-spacing-1 rounded-field flex-1 border-primary border-2 w-full p-1 bg-base-100 outline-none" required/>
+    <.button type="submit" class="btn-primary btn ml-1">send</.button>
+  </.form>
+</div>

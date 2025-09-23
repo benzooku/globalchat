@@ -151,4 +151,26 @@ defmodule GlobalchatWeb.Layouts do
     </div>
     """
   end
+
+  attr :user, :string
+  attr :content, :string
+  attr :date_time, :string
+  attr :id, :integer
+
+  def message(assigns) do
+    ~H"""
+    <div id={@id} class="ms-5 me-5 mt-2 p-2 w-auto break-words border-base-300 bg-base-100 border-spacing-1 rounded-field border-2">
+      <div class="flex flex-row">
+        <div class="text-secondary flex-1">
+          <%= @user %>:
+        </div>
+        <div class="text-secondary">
+          <%= @date_time %>
+        </div>
+      </div>
+      <%= @content %>
+    </div>
+
+    """
+  end
 end
