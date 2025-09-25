@@ -17,7 +17,7 @@ defmodule GlobalchatWeb.Router do
   scope "/", GlobalchatWeb do
     pipe_through :browser
 
-    #get "/home", PageController, :home
+    # get "/home", PageController, :home
 
     live "/", MessageLive.Index, :index
   end

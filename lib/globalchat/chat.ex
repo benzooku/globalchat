@@ -21,7 +21,6 @@ defmodule Globalchat.Chat do
     Repo.all(from m in Message, order_by: [desc: m.inserted_at], limit: 50)
   end
 
-
   @doc """
   Creates a message.
 
@@ -39,7 +38,6 @@ defmodule Globalchat.Chat do
     |> Message.changeset(attrs)
     |> Repo.insert()
   end
-
 
   @doc """
   Deletes a message.

@@ -14,11 +14,12 @@
   <div id="messages" class="flex-1 flex flex-col-reverse overflow-y-scroll">
     <%= for message <- @messages do %>
       <Layouts.message user={message.user} content={message.content} date_time={message.inserted_at} />
-    <!-- Messages -->
-    <% end %>
+      <!-- Messages -->
+      <% end %>
   </div>
   <div id="controlls" class="p-5 flex">
-    <input type="text" placeholder="message" class="border-solid border-spacing-1 rounded-field flex-1 border-primary border-2 w-full p-1 bg-base-100 outline-none"/>
+    <input type="text" placeholder="message"
+      class="border-solid border-spacing-1 rounded-field flex-1 border-primary border-2 w-full p-1 bg-base-100 outline-none" />
     <button class="btn-primary btn ml-1">send</button>
   </div>
 </div>

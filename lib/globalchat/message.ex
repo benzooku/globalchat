@@ -13,7 +13,6 @@ defmodule Globalchat.Message do
   def changeset(message, attrs) do
     message
     |> cast(attrs, [:user, :content])
-
     |> validate_required([:user, :content])
     |> validate_length(:user, min: 2)
     |> validate_length(:user, max: 255)
